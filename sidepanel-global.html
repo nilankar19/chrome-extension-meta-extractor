@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Extractor</title>
+    <link rel="stylesheet" href="sidepanel-global.css">
+   
+  </head>
+  <body>
+    <div class="row-1-main">
+      <div class="input-links">
+        <input type="url" name="collection links" id="collectionurl" class="customInput" placeholder="https://www.domainname.com/collection/jwellry">
+        <button class="subnavbtn btn-small" id="fetchmeta">Get meta</button>
+        <button class="subnavbtn btn-small" id="createtable">create table</button>
+      </div>
+      <div class="progress-wrapper">
+        <p id="progressMessage"></p>
+       
+      </div>
+     
+    </div>
+    <div class="navbar">
+      <div class="subnav">
+        <button class="subnavbtn">About <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="#company">Company</a>
+          <a href="#team">Team</a>
+          <a href="#careers">Careers</a>
+        </div>
+      </div> 
+      <div class="subnav">
+        <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="#bring">Bring</a>
+          <a href="#deliver">Deliver</a>
+          <a href="#package">Package</a>
+          <a href="#express">Express</a>
+        </div>
+      </div> 
+      <div class="subnav">
+        <button class="subnavbtn">Settings <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          
+          <div class="row-1 flex">
+            <div class="col-1 flex  meta-field-settings" id="metasettingList">
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <button id="copytable">copy</button>
+    <button onclick="exportToExcel()">Export to Excel</button>
+
+
+
+
+ 
+    
+
+  
+    <!-- <script src="background.js  "></script> -->
+    <!-- Using CDN for SheetJS -->
+
+    <script type="module" src="script/renderhtml.js"></script>
+    <script type="module" src="script/getallproductmeta.js"></script>
+  </body>
+</html>
