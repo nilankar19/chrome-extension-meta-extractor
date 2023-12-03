@@ -1,3 +1,4 @@
+
 let productUrl_arr_length_data;
 let all_meta_collection_global;
 const colors = {
@@ -151,6 +152,7 @@ async function getIndividualCollection(origin_url,collection) {
             logArray.push({ type: 'info', message: `Extracted meta for product ${index + 1}:`, data: meta }); 
             all_meta_collection.push(meta)
     }));
+    console.log("final",all_meta_collection);
     progressMessage.innerText ='All meta data collected:';
     logArray.push({ type: 'info', message: 'All meta data collected:'});
     return {all_meta_collection, productUrl_arr_length_data}
@@ -189,7 +191,7 @@ async function getIndividualCollection(origin_url,collection) {
           progressMessage.innerText = `extracting tab url completed ,${urlpath.origin},,${urlpath.path}`;
           logArray.push({type: "info",message: "extracted tabUrl",data: urlpath})
           let {all_meta_collection, productUrl_arr_length} = await getIndividualCollection((urlpath.origin),(urlpath.path ))
-         
+       
          all_meta_collection_global = all_meta_collection;
          document.getElementById("createtable").disabled = false;
         }else{
@@ -213,6 +215,7 @@ export default async function createTable(table_head) {
   if(table_head){
 
     let table = document.createElement('table');
+    table.id = 'sheetjs';
     var theader = table.createTHead();
     let tbody = document.createElement("tbody");
     table.appendChild(theader);

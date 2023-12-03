@@ -116,7 +116,10 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 
 document.getElementById("createtable").addEventListener("click",function(){
   let table_head_final = filter_Truth_tHead(user_truth_value,table_head)
-  createTable(table_head_final)
+  createTable(table_head_final);
+  document.getElementById("exportxlxs").addEventListener("click",function () {
+    createWorksheet()
+  })
 })
 
 const url_input = document.getElementById("collectionurl");
@@ -126,3 +129,12 @@ url_input.addEventListener("",function (params) {
 })
 
 });
+async function createWorksheet(rows) {
+  //     const worksheet = XLSX.utils.json_to_sheet(rows);
+  //     const workbook = XLSX.utils.book_new();
+  // XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet2",true );
+  // XLSX.writeFile(workbook, "Presidents.xlsx", { compression: true });
+  var tbl = document.getElementById('sheetjs');
+  var wb = XLSX.utils.table_to_book(tbl);
+  XLSX.writeFile(wb, "SheetJSTable.xlsx");
+  }
